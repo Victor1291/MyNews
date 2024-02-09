@@ -22,4 +22,14 @@
         android:name="com.shu.mynews.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.shu.mynews.ui.mainFragment.MainFragment"
+        android:label="@string/menu_photo"
+        tools:layout="@layout/fragment_main" />
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="com.shu.mynews.ui.gallery.FirstFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_first" />
 </navigation>

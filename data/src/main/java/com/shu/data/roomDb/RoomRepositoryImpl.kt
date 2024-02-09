@@ -2,20 +2,31 @@ package com.shu.data.roomDb
 
 import com.shu.domain.RoomRepository
 import com.shu.entity.Photo
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class RoomRepositoryImpl(
+class RoomRepositoryImpl @Inject constructor(
     private val appDataBasePhoto: PhotoDao
-): RoomRepository {
+) : RoomRepository {
 
-    override suspend fun getAllPhoto(): List<Photo> {
-        return appDataBasePhoto.getAllPhoto()
+    override fun getAllPhoto(): Flow<List<Photo>> {
+        return appDataBasePhoto.getAllPhoto().map { photoDtoList ->
+            photoDtoList.map { item ->
+                Photo(
+                    data = item.data,
+                    pathPhoto = item.pathPhoto,
+                    favorite = item.favorite
+                )
+            }
+        }
     }
 
     override suspend fun insertPhotoRoomDataBase(photoData: String, path: String) {
         appDataBasePhoto.insert(
             PhotoDto(
-                photoData = photoData,
-                path = path
+                data = photoData,
+                pathPhoto = path
             )
         )
     }

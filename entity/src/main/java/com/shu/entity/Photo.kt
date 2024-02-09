@@ -1,6 +1,7 @@
 package com.shu.entity
 
-interface Photo {
-    val path: String
-    val photoData: String
-}
+data class Photo(
+    override val data: String,
+    override val pathPhoto: String,
+    override val favorite: Boolean
+): IPhoto

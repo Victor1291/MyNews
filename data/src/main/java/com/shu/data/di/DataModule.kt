@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.shu.data.roomDb.RoomRepositoryImpl
 import com.shu.data.roomDb.AppDataBasePhoto
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 
