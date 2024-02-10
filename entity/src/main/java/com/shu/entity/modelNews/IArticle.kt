@@ -1,6 +1,6 @@
 package com.shu.entity.modelNews
 
-interface Article {
+interface IArticle {
     val id: Int
     val author: String?
     val content: String?

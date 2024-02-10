@@ -11,4 +11,22 @@
     <string name="menu_gallery">Gallery</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_photo">Photo</string>
+
+    <string-array name="category">
+        <item>science</item>
+        <item>health</item>
+        <item>technology</item>
+        <item>entertainment</item>
+        <item>business</item>
+        <item>sports</item>
+        <item>general</item>
+        <item>general</item>
+        <item>general</item>
+        <item>general</item>
+        <item>general</item>
+        <item>general</item>
+        <item>general</item>
+    </string-array>
+
+    <string name="rover">rover</string>
 </resources>

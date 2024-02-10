@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/linearGroup"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/rover1"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/rover2"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover3"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover4"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover5"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover6"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/rover7"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover8"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover9"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover10"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover11"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+
+            android:id="@+id/rover12"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/rover13"
+            android:alpha="@dimen/category_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/rover" />
+
+</LinearLayout>

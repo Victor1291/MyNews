@@ -1,14 +1,8 @@
-package com.shu.indianews.api
+package com.shu.data.api
 
-import com.shu.indianews.models.NewsList
-import com.shu.indianews.models.NewsResponse
+import com.shu.data.api.models.NewsListDto
+import com.shu.data.api.models.NewsResponseDto
 import com.shu.indianews.utils.Constants.Companion.API_KEY
-import com.shu.indianews.utils.Constants.Companion.BASE_URL
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -17,14 +11,14 @@ interface NewsApi {
     @GET("news")
     suspend fun loadNews(
         @Query("category") category: String,
-    ): NewsList
+    ): NewsListDto
 
     @GET("/v2/everything")
     suspend fun getEverything(
         @Query("q") query: String,
         @Query("page") page: Int = 1,
         @Query("apiKey") apiKey: String = API_KEY
-    ): NewsResponse
+    ): NewsResponseDto
 
     @GET("/v2/top-headlines")
     suspend fun getHeadlines(
@@ -32,22 +26,9 @@ interface NewsApi {
         @Query("category") category: String,
         @Query("page") page: Int = 1,
         @Query("apiKey") apiKey: String = API_KEY
-    ): NewsResponse
+    ): NewsResponseDto
 
 }
-
-val retrofit = Retrofit
-    .Builder()
-    .client(
-        OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().also {
-            it.level = HttpLoggingInterceptor.Level.BODY
-        }).build()
-    )
-    .baseUrl(BASE_URL)
-    .addConverterFactory(GsonConverterFactory.create())
-    .build()
-    .create(NewsApi::class.java)
-
 
 /*
  https://inshorts.deta.dev/news?category=science

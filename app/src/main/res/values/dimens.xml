@@ -8,4 +8,5 @@
     <dimen name="card_radius">10dp</dimen>
     <dimen name="game_card_wide_width">300dp</dimen>
     <dimen name="game_card_wide_height">400dp</dimen>
+    <dimen name="category_alpha">1</dimen>
 </resources>
