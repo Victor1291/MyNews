@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -44,7 +45,13 @@ class FirstFragment : Fragment() {
 
 
         photoAdapter.setOnItemClickListener {
-            val bundle = bundleOf("photochka" to it)
+
+            Toast.makeText(
+                context,
+                "Photo saved on: ${it.pathPhoto}  ${it.data}",
+                Toast.LENGTH_LONG
+            ).show()
+           // val bundle = bundleOf("photochka" to it)
             /* findNavController().navigate(
                  R.id.action_FirstFragment_to_SecondFragment,
                  bundle

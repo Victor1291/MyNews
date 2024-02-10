@@ -11,7 +11,7 @@ class MainViewModel(
 
     fun saveTakenPhoto (photoData: String, path: String) {
         viewModelScope.launch {
-            saveTakenPhotoUseCase.save(photoData, path)
+            saveTakenPhotoUseCase.save(photoData = photoData, path = path)
         }
     }
 }

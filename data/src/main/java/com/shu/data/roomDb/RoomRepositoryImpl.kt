@@ -22,11 +22,11 @@ class RoomRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun insertPhotoRoomDataBase(photoData: String, path: String) {
+    override suspend fun insertPhotoRoomDataBase(data: String, pathPhoto: String) {
         appDataBasePhoto.insert(
             PhotoDto(
-                data = photoData,
-                pathPhoto = path
+                data = data,
+                pathPhoto = pathPhoto
             )
         )
     }
