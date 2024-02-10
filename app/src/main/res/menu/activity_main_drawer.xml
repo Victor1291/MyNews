@@ -20,6 +20,10 @@
             android:id="@+id/mainFragment"
             android:icon="@android:drawable/ic_menu_camera"
             android:title="@string/menu_photo" />
+        <item
+            android:id="@+id/newsFragment"
+            android:icon="@drawable/side_nav_bar"
+            android:title="@string/news" />
 
     </group>
 </menu>

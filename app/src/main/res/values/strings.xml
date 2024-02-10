@@ -29,4 +29,5 @@
     </string-array>
 
     <string name="rover">rover</string>
+    <string name="news">News</string>
 </resources>

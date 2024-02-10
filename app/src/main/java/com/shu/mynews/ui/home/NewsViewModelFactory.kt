@@ -2,7 +2,6 @@ package com.shu.mynews.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.shu.mynews.ui.gallery.FirstViewModel
 import java.lang.IllegalArgumentException
 
 
@@ -14,7 +13,7 @@ import java.lang.IllegalArgumentException
 class NewsViewModelFactory(private val mainViewModel: NewsViewModel) : ViewModelProvider.Factory {
 
     override fun <T: ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(FirstViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(NewsViewModel::class.java)) {
 
             return mainViewModel as T
 
