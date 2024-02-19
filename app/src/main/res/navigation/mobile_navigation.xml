@@ -36,5 +36,28 @@
         android:id="@+id/newsFragment"
         android:name="com.shu.mynews.ui.home.NewsFragment"
         android:label="@string/news"
-        tools:layout="@layout/fragment_news" />
+        tools:layout="@layout/fragment_news" >
+        <action
+            android:id="@+id/action_newsFragment_to_detailNewsFragment"
+            app:destination="@id/detailNewsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailNewsFragment"
+        android:name="com.shu.mynews.ui.detail.DetailNewsFragment"
+        android:label="DetailNewsFragment" >
+        <action
+            android:id="@+id/action_detailNewsFragment_to_zoomFragment"
+            app:destination="@id/zoomFragment" />
+        <argument
+            android:name="news"
+            app:argType="com.shu.mynews.ui.detail.model.DetailNews" />
+    </fragment>
+    <fragment
+        android:id="@+id/zoomFragment"
+        android:name="com.shu.mynews.ui.zoom.ZoomFragment"
+        android:label="ZoomFragment" >
+        <argument
+            android:name="urlImage"
+            app:argType="string" />
+    </fragment>
 </navigation>

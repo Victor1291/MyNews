@@ -8,10 +8,12 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.shu.indianews.main.NewsListAdapter
 import com.shu.mynews.App
 import com.shu.mynews.databinding.FragmentNewsBinding
+import com.shu.mynews.ui.detail.model.DetailNews
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -53,7 +55,7 @@ class NewsFragment : Fragment(), ChooseCategoriesViewGroup.CustomViewClickListen
         //подключение слушателя из CustomView
 
         newsAdapter?.setOnItemClickListener {
-            /*   val new = DetailNews(
+               val new = DetailNews(
                    author = it.author,
                    image = it.urlToImage,
                    title = it.title,
@@ -63,8 +65,8 @@ class NewsFragment : Fragment(), ChooseCategoriesViewGroup.CustomViewClickListen
                )
 
                findNavController().navigate(
-                   MainFragmentDirections.mainToSecond(new)
-               )*/
+                   NewsFragmentDirections.actionNewsFragmentToDetailNewsFragment(new)
+               )
         }
 
         binding.fab.text = viewModel.getPage().toString()
