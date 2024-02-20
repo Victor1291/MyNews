@@ -1,4 +1,4 @@
-package com.shu.mynews.ui.home
+package com.shu.mynews.ui.news
 
 import android.os.Bundle
 import android.util.Log
@@ -10,7 +10,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.shu.indianews.main.NewsListAdapter
 import com.shu.mynews.App
 import com.shu.mynews.databinding.FragmentNewsBinding
 import com.shu.mynews.ui.detail.model.DetailNews
@@ -65,7 +64,9 @@ class NewsFragment : Fragment(), ChooseCategoriesViewGroup.CustomViewClickListen
                )
 
                findNavController().navigate(
-                   NewsFragmentDirections.actionNewsFragmentToDetailNewsFragment(new)
+                   com.shu.mynews.ui.home.NewsFragmentDirections.actionNewsFragmentToDetailNewsFragment(
+                       new
+                   )
                )
         }
 

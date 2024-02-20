@@ -1,4 +1,4 @@
-package com.shu.mynews.ui.home
+package com.shu.mynews.ui.news
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.home.NewsFragment">
+    tools:context=".ui.news.NewsFragment">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
@@ -35,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <com.shu.mynews.ui.home.ChooseCategoriesViewGroup
+        <com.shu.mynews.ui.news.ChooseCategoriesViewGroup
             android:id="@+id/customGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

@@ -34,7 +34,7 @@
         tools:layout="@layout/fragment_first" />
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.shu.mynews.ui.home.NewsFragment"
+        android:name="com.shu.mynews.ui.news.NewsFragment"
         android:label="@string/news"
         tools:layout="@layout/fragment_news" >
         <action

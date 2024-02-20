@@ -1,6 +1,5 @@
 package com.shu.mynews.di
 
-import com.shu.data.roomDb.RoomRepositoryImpl
 import com.shu.domain.GetAllPhotoUseCase
 import com.shu.domain.RoomRepository
 import com.shu.domain.SaveTakenPhotoUseCase
@@ -8,8 +7,8 @@ import com.shu.domain.news.GetAllNewsUseCase
 import com.shu.domain.news.NewsListRepository
 import com.shu.mynews.ui.gallery.FirstViewModel
 import com.shu.mynews.ui.gallery.FirstViewModelFactory
-import com.shu.mynews.ui.home.NewsViewModel
-import com.shu.mynews.ui.home.NewsViewModelFactory
+import com.shu.mynews.ui.news.NewsViewModel
+import com.shu.mynews.ui.news.NewsViewModelFactory
 import com.shu.mynews.ui.mainFragment.MainViewModel
 import com.shu.mynews.ui.mainFragment.MainViewModelFactory
 import dagger.Module
@@ -59,7 +58,7 @@ object DomainModule {
     }
 
     @Provides
-    fun provideNewsViewModelFactory (newsViewModel: NewsViewModel):NewsViewModelFactory {
+    fun provideNewsViewModelFactory (newsViewModel: NewsViewModel): NewsViewModelFactory {
         return NewsViewModelFactory(newsViewModel)
     }
 }

@@ -43,6 +43,7 @@ android {
 
 dependencies {
 
+
     implementation(project(":domain"))
     api(project(":data"))
     implementation(project(":entity"))
@@ -60,8 +61,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     //Dagger
-    implementation ("com.google.dagger:dagger:2.48.1")
-    ksp ("com.google.dagger:dagger-compiler:2.48.1")
+    implementation("com.google.dagger:dagger:2.48.1")
+    ksp("com.google.dagger:dagger-compiler:2.48.1")
 
     implementation("androidx.recyclerview:recyclerview:1.3.2")
     // For control over item selection of both touch and mouse driven selection
@@ -90,4 +91,9 @@ dependencies {
     implementation("androidx.camera:camera-view:${cameraxVersion}")
     implementation("androidx.camera:camera-extensions:${cameraxVersion}")
 
+    //Flex
+    implementation("com.squareup.picasso:picasso:2.71828")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
+    implementation("androidx.viewpager2:viewpager2:1.1.0-beta02")
+    implementation ("jp.wasabeef:recyclerview-animators:4.0.2")
 }

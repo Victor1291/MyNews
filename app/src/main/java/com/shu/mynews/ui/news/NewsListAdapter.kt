@@ -1,4 +1,4 @@
-package com.shu.indianews.main
+package com.shu.mynews.ui.news
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
