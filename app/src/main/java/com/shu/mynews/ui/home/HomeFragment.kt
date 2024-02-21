@@ -7,15 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import com.shu.mynews.App
 import com.shu.mynews.ui.habits.MainHabitListAdapter
 import com.shu.mynews.ui.habits.MainHabitsItemDecorator
 import com.shu.mynews.databinding.FragmentHomeBinding
+import com.shu.mynews.ui.habits.MainHabitListAdapter2
 import jp.wasabeef.recyclerview.animators.SlideInLeftAnimator
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import javax.inject.Inject
 
 class HomeFragment : Fragment() {
 
@@ -27,14 +27,12 @@ class HomeFragment : Fragment() {
         fun newInstance() = HomeFragment()
     }
 
-    private val habitsListAdapter = MainHabitListAdapter()
-    // private lateinit var viewModel: HomeViewModel
+    private val habitsListAdapter = MainHabitListAdapter2()
 
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
+
 
     private val viewModel: HomeViewModel by viewModels {
-        viewModelFactory
+        App.appComponentUser.homeViewModelFactory()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,10 +61,9 @@ class HomeFragment : Fragment() {
         viewModel.todayHabits.onEach {
 
             Log.d("homeFragment", " size List ${it.size} $it")
-            habitsListAdapter.items.addAll(it)
-            habitsListAdapter.notifyDataSetChanged()
+            habitsListAdapter.differ?.submitList(it)
+          //  habitsListAdapter.notifyDataSetChanged()
         }.launchIn(viewLifecycleOwner.lifecycleScope)
-
         viewModel.getHabits(1)
         binding.fab.setOnClickListener{
             //todo сделать переход
@@ -75,9 +72,9 @@ class HomeFragment : Fragment() {
     }
 
     private fun initRecycler() {
-        binding.habitsListRecycler.addItemDecoration(MainHabitsItemDecorator())
+        //binding.habitsListRecycler.addItemDecoration(MainHabitsItemDecorator())
         binding.habitsListRecycler.adapter = habitsListAdapter
-        binding.habitsListRecycler.itemAnimator = SlideInLeftAnimator()
+       // binding.habitsListRecycler.itemAnimator = SlideInLeftAnimator()
     }
 
     override fun onDestroyView() {

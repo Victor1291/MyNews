@@ -1,12 +1,13 @@
-package com.green.habits.home.repository
+package com.shu.mynews.ui.repository
 
-import com.shu.data.dto.Habit
+
+import com.shu.domain.habits.model.IHabit
 
 interface HabitsMemoryCache {
 
-    fun saveHabit(day: Int, habits: List<Habit>)
+    fun saveHabit(day: Int, habits: List<IHabit>)
 
-    fun getHabits(day: Int): List<Habit>
+    fun getHabits(day: Int): List<IHabit>
 
     fun clearCache()
 }

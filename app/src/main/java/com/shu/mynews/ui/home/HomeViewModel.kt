@@ -4,9 +4,11 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import javax.inject.Inject
-import com.green.habits.home.repository.HabitsMemoryCache
+import com.shu.mynews.ui.repository.HabitsMemoryCache
 import com.shu.data.database.HabitsDao
 import com.shu.data.dto.Habit
+import com.shu.domain.habits.GetAllHabitsUseCase
+import com.shu.domain.habits.model.IHabit
 import com.shu.mynews.R
 import com.shu.mynews.ui.habits.MainHabitModel
 import kotlinx.coroutines.CoroutineScope
@@ -17,16 +19,17 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
+import java.lang.IllegalArgumentException
 import java.util.*
 
 class HomeViewModel
 constructor(
     private val habitsMemoryCache: HabitsMemoryCache,
-    private val habitsDao: HabitsDao,
+    private val getAllHabitsUseCase: GetAllHabitsUseCase
 ) : ViewModel() {
 
 
-    private val _todayHabits = MutableStateFlow<List<Habit>>(emptyList())
+    private val _todayHabits = MutableStateFlow<List<IHabit>>(emptyList())
     val todayHabits: Flow<List<MainHabitModel>> = _todayHabits.asStateFlow().map {
         //Заглушка
         beginState()
@@ -52,7 +55,7 @@ constructor(
     fun getHabits(day: Int) {
         uiScope.launch {
             _todayHabits.value = habitsMemoryCache.getHabits(day).ifEmpty {
-                habitsDao.getHabits()
+                getAllHabitsUseCase.execute()
             }.also {
                 habitsMemoryCache.saveHabit(day, it)
             }
@@ -78,12 +81,14 @@ constructor(
     }
 }
 
-class HomeViewModelFactory @Inject constructor(
-    private val habitsMemoryCache: HabitsMemoryCache,
-    private val habitsDao: HabitsDao,
+class HomeViewModelFactory(
+    private val homeViewModel: HomeViewModel
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return HomeViewModel(habitsMemoryCache, habitsDao) as T
+        if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+            return homeViewModel as T
+        }
+        throw IllegalArgumentException("Unknown class name")
     }
 }

@@ -2,6 +2,8 @@ package com.shu.data.roomDb
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.shu.data.database.HabitsDao
+import com.shu.data.database.HabitsDatabaseContract
 import com.shu.data.dto.Completion
 import com.shu.data.dto.Habit
 import com.shu.data.dto.HabitNotifiers
@@ -16,5 +18,7 @@ import com.shu.data.dto.HabitNotifiers
 abstract class AppDataBasePhoto: RoomDatabase() {
 
     abstract fun photoDao(): PhotoDao
+
+    abstract fun habitsDao(): HabitsDao
 
 }

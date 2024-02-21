@@ -47,9 +47,9 @@ class MainHabitListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class MainHabitsViewHolder(
         private val item: MainHabitCell
-    ) : RecyclerView.ViewHolder(item), AnimateViewHolder {
+    ) : RecyclerView.ViewHolder(item) { //, AnimateViewHolder
 
-        override fun animateAddImpl(
+      /*  override fun animateAddImpl(
             holder: RecyclerView.ViewHolder,
             listener: Animator.AnimatorListener
         ) {
@@ -78,7 +78,7 @@ class MainHabitListAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
 
         override fun preAnimateRemoveImpl(holder: RecyclerView.ViewHolder) {
-        }
+        }*/
 
         fun populate(model: MainListItemType) {
             item.populate(model as MainHabitModel)

@@ -2,6 +2,7 @@ package com.shu.mynews.ui.habits
 
 import android.content.Context
 import android.util.AttributeSet
+import android.util.Log
 import android.widget.RelativeLayout
 import androidx.annotation.DrawableRes
 import com.shu.mynews.R
@@ -25,6 +26,7 @@ class MainHabitCell
     }
 
     override fun populate(model: MainHabitModel) {
+        Log.d("mainHabitCell", "populate run ${model.title}")
         binding.titleView.text = model.title
         binding.repeatsIndicatorView.setDotsNumber(4)
         Picasso.get().load(model.icon).into(binding.iconView)

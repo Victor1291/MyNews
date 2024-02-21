@@ -64,7 +64,7 @@ class NewsFragment : Fragment(), ChooseCategoriesViewGroup.CustomViewClickListen
                )
 
                findNavController().navigate(
-                   com.shu.mynews.ui.home.NewsFragmentDirections.actionNewsFragmentToDetailNewsFragment(
+                   NewsFragmentDirections.actionNewsFragmentToDetailNewsFragment(
                        new
                    )
                )

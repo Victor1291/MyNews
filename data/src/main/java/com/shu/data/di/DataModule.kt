@@ -6,8 +6,10 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.shu.data.api.NewsApi
 import com.shu.data.api.NewsListRepositoryImpl
+import com.shu.data.habits.HabitsRepositoryImpl
 import com.shu.data.roomDb.AppDataBasePhoto
 import com.shu.data.roomDb.RoomRepositoryImpl
+import com.shu.domain.habits.HabitsRepository
 import com.shu.domain.news.NewsListRepository
 import com.shu.indianews.utils.Constants
 import com.shu.indianews.utils.Constants.Companion.BASE_URL
@@ -49,5 +51,10 @@ class DataModule {
     @Provides
     fun provideRoomRepository (appDataBasePhoto: AppDataBasePhoto): RoomRepositoryImpl {
         return RoomRepositoryImpl(appDataBasePhoto.photoDao())
+    }
+
+    @Provides
+    fun provideHabitsRepository (appDataBasePhoto: AppDataBasePhoto): HabitsRepository {
+        return HabitsRepositoryImpl(appDataBasePhoto.habitsDao())
     }
 }
