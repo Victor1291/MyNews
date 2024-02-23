@@ -58,4 +58,9 @@
         android:id="@+id/homeFragment"
         android:name="com.shu.mynews.ui.home.HomeFragment"
         android:label="HomeFragment" />
+    <fragment
+        android:id="@+id/visitorFragment"
+        android:name="com.shu.mynews.ui.visitor.main.VisitorFragment"
+        android:label="fragment_visitor"
+        tools:layout="@layout/fragment_visitor" />
 </navigation>

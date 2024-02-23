@@ -24,6 +24,10 @@
             android:id="@+id/newsFragment"
             android:icon="@drawable/side_nav_bar"
             android:title="@string/news" />
+        <item
+            android:id="@+id/visitorFragment"
+            android:icon="@drawable/side_nav_bar"
+            android:title="multiple" />
 
     </group>
 </menu>

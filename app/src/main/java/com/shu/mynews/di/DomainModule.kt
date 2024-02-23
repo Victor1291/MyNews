@@ -18,6 +18,8 @@ import com.shu.mynews.ui.news.NewsViewModelFactory
 import com.shu.mynews.ui.mainFragment.MainViewModel
 import com.shu.mynews.ui.mainFragment.MainViewModelFactory
 import com.shu.mynews.ui.repository.HabitsMemoryCache
+import com.shu.mynews.ui.visitor.main.VisitorViewModel
+import com.shu.mynews.ui.visitor.main.VisitorViewModelFactory
 import dagger.Module
 import dagger.Provides
 import dagger.Reusable
@@ -85,9 +87,20 @@ object DomainModule {
         return HomeViewModelFactory(homeViewModel)
     }
 
- /*   @Provides
-    @Reusable
-    fun provideHabitsDao(habitsDatabaseContract: HabitsDatabaseContract): HabitsDao {
-        return habitsDatabaseContract.habitsDao()
-    }*/
+    @Provides
+    fun provideVisitorViewModel (): VisitorViewModel {
+        return  VisitorViewModel()
+    }
+
+    @Provides
+    fun provideVisitorViewModelFactory (visitorViewModel: VisitorViewModel): VisitorViewModelFactory {
+        return VisitorViewModelFactory(visitorViewModel)
+    }
+
+
+    /*   @Provides
+       @Reusable
+       fun provideHabitsDao(habitsDatabaseContract: HabitsDatabaseContract): HabitsDao {
+           return habitsDatabaseContract.habitsDao()
+       }*/
 }
