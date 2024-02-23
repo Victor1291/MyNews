@@ -6,4 +6,6 @@ interface MainListItemType {
 
     @LayoutRes
     fun getItemType(): Int
+
+    fun size(): Int
 }

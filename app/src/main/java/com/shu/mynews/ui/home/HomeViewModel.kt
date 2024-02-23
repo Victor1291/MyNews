@@ -11,6 +11,7 @@ import com.shu.domain.habits.GetAllHabitsUseCase
 import com.shu.domain.habits.model.IHabit
 import com.shu.mynews.R
 import com.shu.mynews.ui.habits.MainHabitModel
+import com.shu.mynews.ui.habits.MainListItemType
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -30,7 +31,7 @@ constructor(
 
 
     private val _todayHabits = MutableStateFlow<List<IHabit>>(emptyList())
-    val todayHabits: Flow<List<MainHabitModel>> = _todayHabits.asStateFlow().map {
+    val todayHabits: Flow<List<MainListItemType>> = _todayHabits.asStateFlow().map {
         //Заглушка
         beginState()
     }
@@ -66,7 +67,7 @@ constructor(
         createHabitMediator.openCreateHabitScreen(context)
     }*/
 
-    private fun beginState(): List<MainHabitModel> {
+    private fun beginState(): List<MainListItemType> {
         return  listOf(
             MainHabitModel(
                 1L, "Eat some vegetables", R.drawable.emoji_leafy, 3, 4, false

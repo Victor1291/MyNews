@@ -4,8 +4,6 @@ import android.content.Context
 import android.util.AttributeSet
 import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.green.habits.home.view.RecommendationsItemDecorator
-import com.green.habits.home.view.StartSnapHelper
 import com.shu.mynews.R
 import com.shu.mynews.databinding.RecommendationsCellLayoutBinding
 import com.shu.mynews.ui.core.Populatable
@@ -51,7 +49,10 @@ data class RecommendationsHolder(
     val recommendations: List<RecommendationModel>
 ) : MainListItemType {
 
-    override fun getItemType() = R.layout.recommendations_cell_layout
+    override fun getItemType() = R.layout.recommendations_cell
+    override fun size(): Int {
+      return recommendations.size
+    }
 }
 
 data class RecommendationModel(

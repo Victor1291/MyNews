@@ -49,5 +49,9 @@ data class MainHabitModel(
     val days: List<Int> = emptyList()
 ) : MainListItemType {
 
-    override fun getItemType() = R.layout.main_habit_cell_layout
+    override fun size(): Int {
+        return title.length
+    }
+
+    override fun getItemType() = R.layout.habit_cell
 }

@@ -1,13 +1,15 @@
 package com.shu.mynews.ui.habits
 
-import android.util.Log
+import android.animation.Animator
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.shu.mynews.databinding.HabitCellBinding
 import com.squareup.picasso.Picasso
+import jp.wasabeef.recyclerview.animators.holder.AnimateViewHolder
 
 class MainHabitListAdapter2 : RecyclerView.Adapter<MainHabitsViewHolder>() {
 
@@ -22,13 +24,19 @@ class MainHabitListAdapter2 : RecyclerView.Adapter<MainHabitsViewHolder>() {
 
     }
 
-    private val callback = object : DiffUtil.ItemCallback<MainHabitModel>() {
-        override fun areItemsTheSame(oldItem: MainHabitModel, newItem: MainHabitModel): Boolean {
-            return oldItem.id == newItem.id
+    private val callback = object : DiffUtil.ItemCallback<MainListItemType>() {
+        override fun areItemsTheSame(
+            oldItem: MainListItemType,
+            newItem: MainListItemType
+        ): Boolean {
+            return oldItem.getItemType() == newItem.getItemType()
         }
 
-        override fun areContentsTheSame(oldItem: MainHabitModel, newItem: MainHabitModel): Boolean {
-            return oldItem == newItem
+        override fun areContentsTheSame(
+            oldItem: MainListItemType,
+            newItem: MainListItemType
+        ): Boolean {
+            return oldItem.size() == newItem.size()
         }
     }
 
@@ -37,12 +45,14 @@ class MainHabitListAdapter2 : RecyclerView.Adapter<MainHabitsViewHolder>() {
 
     override fun onBindViewHolder(holder: MainHabitsViewHolder, position: Int) {
         val item = differ.currentList[position]
-        Log.d("maadapter", " new title  ${item.title}")
+
         with(holder.binding) {
-            titleView.text = item.title
-            repeatsIndicatorView.setDotsNumber(4)
-            Picasso.get().load(item.icon).into(iconView)
-            repeatsIndicatorView.setOnClickListener { repeatsIndicatorView.updateCounter() }
+            with((item as MainHabitModel)) {
+                titleView.text = item.title
+                repeatsIndicatorView.setDotsNumber(4)
+                Picasso.get().load(item.icon).into(iconView)
+                repeatsIndicatorView.setOnClickListener { repeatsIndicatorView.updateCounter() }
+            }
         }
 
 
@@ -54,7 +64,40 @@ class MainHabitListAdapter2 : RecyclerView.Adapter<MainHabitsViewHolder>() {
 }
 
 
-class MainHabitsViewHolder(val binding: HabitCellBinding) : RecyclerView.ViewHolder(binding.root)
+class MainHabitsViewHolder(val binding: HabitCellBinding) : RecyclerView.ViewHolder(binding.root),
+    AnimateViewHolder {
+    override fun animateAddImpl(
+        holder: RecyclerView.ViewHolder,
+        listener: Animator.AnimatorListener
+    ) {
+        holder.itemView
+            .animate()
+            .translationX(0F)
+            .setDuration(120)
+            .setInterpolator(LinearInterpolator())
+            .start()
+    }
+
+    override fun animateRemoveImpl(
+        holder: RecyclerView.ViewHolder,
+        listener: Animator.AnimatorListener
+    ) {
+        holder.itemView
+            .animate()
+            .translationX(-holder.itemView.rootView.width.toFloat())
+            .setDuration(120)
+            .setInterpolator(LinearInterpolator())
+            .start()
+    }
+
+    override fun preAnimateAddImpl(holder: RecyclerView.ViewHolder) {
+        holder.itemView.translationX = -holder.itemView.rootView.width.toFloat()
+    }
+
+    override fun preAnimateRemoveImpl(holder: RecyclerView.ViewHolder) {
+        TODO("Not yet implemented")
+    }
+}
 
 /*class MdainHabitsViewHolder(
     private val item: MainHabitCell

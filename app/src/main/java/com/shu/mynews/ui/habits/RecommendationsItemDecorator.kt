@@ -1,4 +1,4 @@
-package com.green.habits.home.view
+package com.shu.mynews.ui.habits
 
 import android.graphics.Rect
 import android.view.View

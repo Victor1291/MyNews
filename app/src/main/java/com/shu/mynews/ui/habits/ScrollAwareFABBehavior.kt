@@ -1,4 +1,4 @@
-package com.green.habits.home.view
+package com.shu.mynews.ui.habits
 
 import android.content.Context
 import android.util.AttributeSet
