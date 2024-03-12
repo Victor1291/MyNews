@@ -99,44 +99,5 @@ class MainHabitsViewHolder(val binding: HabitCellBinding) : RecyclerView.ViewHol
     }
 }
 
-/*class MdainHabitsViewHolder(
-    private val item: MainHabitCell
-) : RecyclerView.ViewHolder(item) { //, AnimateViewHolder
-
-    *//*  override fun animateAddImpl(
-          holder: RecyclerView.ViewHolder,
-          listener: Animator.AnimatorListener
-      ) {
-          holder.itemView
-              .animate()
-              .translationX(0F)
-              .setDuration(120)
-              .setInterpolator(LinearInterpolator())
-              .start()
-      }
-
-      override fun animateRemoveImpl(
-          holder: RecyclerView.ViewHolder,
-          listener: Animator.AnimatorListener
-      ) {
-          holder.itemView
-              .animate()
-              .translationX(-holder.itemView.rootView.width.toFloat())
-              .setDuration(120)
-              .setInterpolator(LinearInterpolator())
-              .start()
-      }
-
-      override fun preAnimateAddImpl(holder: RecyclerView.ViewHolder) {
-          holder.itemView.translationX = -holder.itemView.rootView.width.toFloat()
-      }
-
-      override fun preAnimateRemoveImpl(holder: RecyclerView.ViewHolder) {
-      }*//*
-
-    fun populate(model: MainListItemType) {
-        item.populate(model as MainHabitModel)
-    }
-}*/
 
 

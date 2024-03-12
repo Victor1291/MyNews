@@ -1,11 +1,10 @@
 package com.shu.mynews.ui.visitor.main
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -14,16 +13,22 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shu.mynews.App
-import com.shu.mynews.R
-import com.shu.mynews.databinding.FragmentNewsBinding
 import com.shu.mynews.databinding.FragmentVisitorBinding
 import com.shu.mynews.ui.visitor.adapter.AdapterClickListenerById
 import com.shu.mynews.ui.visitor.adapter.BaseListAdapter
+import com.shu.mynews.ui.visitor.adapter.ItemTypes
 import com.shu.mynews.ui.visitor.adapter.ViewHoldersManager
+import com.shu.mynews.ui.visitor.adapter.ViewHoldersManagerImpl
+import com.shu.mynews.ui.visitor.viewHolders.CardViewHolder
+import com.shu.mynews.ui.visitor.viewHolders.HeaderViewHolder
+import com.shu.mynews.ui.visitor.viewHolders.OneLine2ViewHolder
+import com.shu.mynews.ui.visitor.viewHolders.TwoStringsViewHolder
 import kotlinx.coroutines.launch
-import ru.alexmaryin.recycleronvisitor.data.HasStringId
-import ru.alexmaryin.recycleronvisitor.data.ui_models.RecyclerHeader
-import javax.inject.Inject
+import com.shu.mynews.ui.visitor.model.HasStringId
+import com.shu.mynews.ui.visitor.model.RecyclerHeader
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
+
 
 class VisitorFragment : Fragment() {
 
@@ -41,8 +46,7 @@ class VisitorFragment : Fragment() {
 
     private lateinit var recycler: RecyclerView
 
-
-    @Inject lateinit var viewHoldersManager: ViewHoldersManager
+    lateinit var viewHoldersManager: ViewHoldersManager
 
     private val items = mutableListOf<HasStringId>()
 
@@ -51,6 +55,12 @@ class VisitorFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentVisitorBinding.inflate(inflater, container, false)
+        viewHoldersManager =  ViewHoldersManagerImpl().apply {
+            registerViewHolder(ItemTypes.HEADER, HeaderViewHolder())
+            registerViewHolder(ItemTypes.ONE_LINE_STRINGS, OneLine2ViewHolder())
+            registerViewHolder(ItemTypes.TWO_STRINGS, TwoStringsViewHolder())
+            registerViewHolder(ItemTypes.CARD, CardViewHolder())
+        }
         return binding.root
     }
 
@@ -58,15 +68,20 @@ class VisitorFragment : Fragment() {
 
        binding.shuffleButton.setOnClickListener { shuffle() }
 
+
         recycler = binding.recycller
         val itemsAdapter = BaseListAdapter(AdapterClickListenerById {}, viewHoldersManager)
-        itemsAdapter.submitList(items)
         binding.recycller.apply {
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(DividerItemDecoration(requireContext(), (layoutManager as LinearLayoutManager).orientation))
             adapter = itemsAdapter
         }
-        populateRecycler()
+        viewModel.news.onEach {
+                itemsAdapter.submitList(it)
+        }.launchIn(viewLifecycleOwner.lifecycleScope)
+
+       // itemsAdapter.submitList(items)
+      //  populateRecycler()
     }
 
     private fun populateRecycler() {

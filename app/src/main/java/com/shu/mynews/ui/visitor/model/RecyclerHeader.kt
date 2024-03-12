@@ -1,6 +1,6 @@
-package ru.alexmaryin.recycleronvisitor.data.ui_models
+package com.shu.mynews.ui.visitor.model
 
-import ru.alexmaryin.recycleronvisitor.data.HasStringId
+import com.shu.mynews.ui.visitor.model.HasStringId
 
 data class RecyclerHeader(
     override val id: String = "header",

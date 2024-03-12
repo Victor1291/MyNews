@@ -11,7 +11,7 @@ import com.shu.mynews.databinding.CardItemBinding
 import com.shu.mynews.databinding.OneLineItem2Binding
 import com.shu.mynews.databinding.RecyclerHeaderItemBinding
 import com.shu.mynews.databinding.TwoLineItemBinding
-import ru.alexmaryin.recycleronvisitor.data.HasStringId
+import com.shu.mynews.ui.visitor.model.HasStringId
 
 class BaseListAdapter(
     private val clickListener: AdapterClickListenerById,

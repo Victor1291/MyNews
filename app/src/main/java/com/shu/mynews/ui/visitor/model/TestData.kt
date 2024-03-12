@@ -1,10 +1,6 @@
 package com.shu.mynews.ui.visitor.model
 
 import kotlinx.coroutines.flow.flow
-import ru.alexmaryin.recycleronvisitor.data.ui_models.CardItem
-import ru.alexmaryin.recycleronvisitor.data.ui_models.OneLineItem2
-import ru.alexmaryin.recycleronvisitor.data.ui_models.RecyclerHeader
-import ru.alexmaryin.recycleronvisitor.data.ui_models.TwoStringsItem
 
 object  TestData {
 
@@ -18,7 +14,8 @@ object  TestData {
     val cardFlow = flow {
         emit(RecyclerHeader(text = "Карточки с фото"))
         repeat(10) { num ->
-            emit(CardItem(
+            emit(
+                CardItem(
                 image = pictures.random(),
                 title = "Карточка номер $num",
                 description = "Здесь должно быть описание фотографии, длинное описание, со множеством деталей.\n" +

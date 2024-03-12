@@ -15,8 +15,7 @@ import dagger.Component
     modules = [
         DataModule::class,
         DomainModule::class,
-        RepoModule::class,
-        DiModule::class
+        RepoModule::class
     ]
 )
 interface AppComponent {

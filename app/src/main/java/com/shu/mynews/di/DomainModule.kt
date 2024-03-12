@@ -88,8 +88,8 @@ object DomainModule {
     }
 
     @Provides
-    fun provideVisitorViewModel (): VisitorViewModel {
-        return  VisitorViewModel()
+    fun provideVisitorViewModel (getAllNewsUseCase: GetAllNewsUseCase): VisitorViewModel {
+        return  VisitorViewModel(getAllNewsUseCase)
     }
 
     @Provides

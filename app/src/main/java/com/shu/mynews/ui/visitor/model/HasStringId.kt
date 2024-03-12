@@ -1,4 +1,4 @@
-package ru.alexmaryin.recycleronvisitor.data
+package com.shu.mynews.ui.visitor.model
 
 interface HasStringId {
     val id: String

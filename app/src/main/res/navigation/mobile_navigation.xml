@@ -61,6 +61,6 @@
     <fragment
         android:id="@+id/visitorFragment"
         android:name="com.shu.mynews.ui.visitor.main.VisitorFragment"
-        android:label="fragment_visitor"
+        android:label="Multiple News"
         tools:layout="@layout/fragment_visitor" />
 </navigation>

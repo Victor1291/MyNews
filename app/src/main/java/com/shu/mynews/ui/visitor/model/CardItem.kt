@@ -1,6 +1,4 @@
-package ru.alexmaryin.recycleronvisitor.data.ui_models
-
-import ru.alexmaryin.recycleronvisitor.data.HasStringId
+package com.shu.mynews.ui.visitor.model
 
 data class CardItem(
     override val id: String = "card",

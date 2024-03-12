@@ -5,7 +5,7 @@ import com.shu.mynews.R
 import com.shu.mynews.databinding.CardItemBinding
 import com.shu.mynews.ui.visitor.adapter.AdapterClickListenerById
 import com.squareup.picasso.Picasso
-import ru.alexmaryin.recycleronvisitor.data.ui_models.CardItem
+import com.shu.mynews.ui.visitor.model.CardItem
 import com.shu.mynews.ui.visitor.adapter.ViewHolderVisitor
 
 class CardViewHolder : ViewHolderVisitor {

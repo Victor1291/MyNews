@@ -5,7 +5,7 @@ import com.shu.mynews.R
 import com.shu.mynews.databinding.OneLineItem2Binding
 import com.shu.mynews.ui.visitor.adapter.AdapterClickListenerById
 import com.shu.mynews.ui.visitor.adapter.ViewHolderVisitor
-import ru.alexmaryin.recycleronvisitor.data.ui_models.OneLineItem2
+import com.shu.mynews.ui.visitor.model.OneLineItem2
 
 
 

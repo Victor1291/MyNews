@@ -5,7 +5,7 @@ import com.shu.mynews.R
 import com.shu.mynews.databinding.TwoLineItemBinding
 import com.shu.mynews.ui.visitor.adapter.AdapterClickListenerById
 import com.shu.mynews.ui.visitor.adapter.ViewHolderVisitor
-import ru.alexmaryin.recycleronvisitor.data.ui_models.TwoStringsItem
+import com.shu.mynews.ui.visitor.model.TwoStringsItem
 
 class TwoStringsViewHolder : ViewHolderVisitor {
 

@@ -3,7 +3,7 @@ package com.shu.mynews.ui.visitor.viewHolders
 import androidx.viewbinding.ViewBinding
 import com.shu.mynews.R
 import com.shu.mynews.databinding.RecyclerHeaderItemBinding
-import ru.alexmaryin.recycleronvisitor.data.ui_models.RecyclerHeader
+import com.shu.mynews.ui.visitor.model.RecyclerHeader
 import com.shu.mynews.ui.visitor.adapter.AdapterClickListenerById
 import com.shu.mynews.ui.visitor.adapter.ViewHolderVisitor
 
