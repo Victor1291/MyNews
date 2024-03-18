@@ -6,8 +6,6 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Transaction
-import com.shu.data.collections.db.CollectionsDbo
-import com.shu.data.collections.db.MessageDbo
 import kotlinx.coroutines.flow.Flow
 
 @Dao
