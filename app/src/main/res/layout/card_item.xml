@@ -39,17 +39,16 @@
             android:textColor="#FFFFFF"
             android:textStyle="bold"
             tools:text="Cart title" />
-
+<!--
         <TextView
             android:id="@+id/txt_discription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:maxLines="2"
             android:text="card.description"
             android:textColor="#FFFFFF"
             tools:text="this is a simple discription with losts of text lorem ipsum dolor sit amet,
-            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+            consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />-->
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

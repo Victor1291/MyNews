@@ -80,9 +80,11 @@ class VisitorFragment : Fragment() {
                 itemsAdapter.submitList(it)
         }.launchIn(viewLifecycleOwner.lifecycleScope)
 
+
        // itemsAdapter.submitList(items)
       //  populateRecycler()
     }
+
 
     private fun populateRecycler() {
         lifecycleScope.launch {

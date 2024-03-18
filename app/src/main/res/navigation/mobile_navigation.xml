@@ -63,4 +63,43 @@
         android:name="com.shu.mynews.ui.visitor.main.VisitorFragment"
         android:label="Multiple News"
         tools:layout="@layout/fragment_visitor" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.shu.mynews.ui.collections.ProfileFragment"
+        android:label="ProfileFragment" >
+        <action
+            android:id="@+id/action_profileFragment_to_messageFragment"
+            app:destination="@id/messageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.shu.mynews.ui.message.MessageFragment"
+        android:label="fragment_message"
+        tools:layout="@layout/fragment_message" >
+        <action
+            android:id="@+id/action_messageFragment_to_changeFragment"
+            app:destination="@id/changeFragment" />
+        <action
+            android:id="@+id/action_messageFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <argument
+            android:name="collection"
+            app:argType="com.shu.mynews.ui.collections.CollectionInUi" />
+    </fragment>
+    <fragment
+        android:id="@+id/changeFragment"
+        android:name="com.shu.mynews.ui.change.ChangeFragment"
+        android:label="fragment_change"
+        tools:layout="@layout/fragment_change" >
+        <action
+            android:id="@+id/action_changeFragment_to_messageFragment"
+            app:destination="@id/messageFragment" />
+        <argument
+            android:name="message"
+            app:argType="com.shu.mynews.ui.message.Message" />
+    </fragment>
 </navigation>

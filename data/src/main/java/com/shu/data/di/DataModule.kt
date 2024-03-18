@@ -6,9 +6,12 @@ import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.shu.data.api.NewsApi
 import com.shu.data.api.NewsListRepositoryImpl
+import com.shu.data.api.sun.api.ApiSun
+import com.shu.data.collections.CollectionRepositoryImpl
 import com.shu.data.habits.HabitsRepositoryImpl
 import com.shu.data.roomDb.AppDataBasePhoto
 import com.shu.data.roomDb.RoomRepositoryImpl
+import com.shu.domain.collection.repository.CollectionRepository
 import com.shu.domain.habits.HabitsRepository
 import com.shu.domain.news.NewsListRepository
 import com.shu.indianews.utils.Constants
@@ -38,6 +41,19 @@ class DataModule {
     .build()
     .create(NewsApi::class.java)
 
+    @Provides
+    fun provideSunRetrofit() : ApiSun = Retrofit
+        .Builder()
+        .client(
+            OkHttpClient.Builder().addInterceptor(HttpLoggingInterceptor().also {
+                it.level = HttpLoggingInterceptor.Level.BODY
+            }).build()
+        )
+        .baseUrl("https://api.sunrise-sunset.org/")
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+        .create(ApiSun::class.java)
+
 
     @Provides
     fun providesAppDataBasePhoto (application: Application): AppDataBasePhoto {
@@ -57,4 +73,10 @@ class DataModule {
     fun provideHabitsRepository (appDataBasePhoto: AppDataBasePhoto): HabitsRepository {
         return HabitsRepositoryImpl(appDataBasePhoto.habitsDao())
     }
+
+    @Provides
+    fun provideCollectionRepository (appDataBasePhoto: AppDataBasePhoto): CollectionRepository {
+        return CollectionRepositoryImpl(appDataBasePhoto.osDao())
+    }
+
 }
